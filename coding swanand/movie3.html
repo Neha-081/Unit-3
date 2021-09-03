@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: rgb(46, 0, 8);
+        }#movie{
+            height: 30px;
+            width: 400px;
+            margin-left: 500px;
+            margin-top: 50px;
+            font-size: 20px;
+        }#sub{
+            height: 35px;
+            width: 100px;
+            font-size: 20px;
+        }#box{
+            color: white;
+            margin-left: 50px;
+            font-size: 18px;
+        }.big{
+            max-width: 600px;
+            margin: auto;
+        }.h1{
+            font-size: 50px;
+            text-align: center;
+        }.cls{
+            font-size: 25px;
+            text-align: center;
+        }.img{
+            margin-left: 130px;
+        }#box1{
+            margin-left: 500px;
+            margin-top: 100px;
+        }.recom{
+            color: blue;
+            font-size: 25px;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" id="movie" placeholder="Enter Movie"/>
+    <button onclick="getMovie()" id="sub">Submit</button>
+        
+   <div id="box">
+ </div>
+ <p id="sorry"></p>
+ <div id="box1"></div>
+</body>
+</html>
+<script>
+    async function getMovie(){
+        try{
+            let movie = document.getElementById("movie").value;
+            let sory = document.getElementById("sorry");
+            let box1 = document.getElementById("box1");
+            let response = await fetch(`http://www.omdbapi.com/?t=${movie}&apikey=b083f161`);
+            let data = await response.json();
+            var info=''
+            for(key in data){
+             
+                if(data.Title==undefined){
+                    info="sorry"
+
+                }else if(data.imdbRating>8.5){
+                    info=` <div class="big">
+           <h1 class="h1">${data.Title}</h1>
+           <img  src=${data.Poster} class="img"/>
+           <p class="cls">Released date: ${data.Released}</p>
+        <p>${data.Plot}</p>
+        <p class="cls">IMDB Rating:${data.imdbRating} <p class="recom">Recommended</p></p>
+       </div>`
+                }
+              else{
+                info=` <div class="big">
+           <h1 class="h1">${data.Title}</h1>
+           <img  src=${data.Poster} class="img"/>
+           <p class="cls">Released date: ${data.Released}</p>
+        <p>${data.Plot}</p>
+        <p class="cls">IMDB Rating:${data.imdbRating}</p>
+       </div>`
+             }}
+             document.getElementById('box').innerHTML=info
+
+ 
+        }catch(err){
+            console.log("error",err);
+        }
+    }
+</script>
