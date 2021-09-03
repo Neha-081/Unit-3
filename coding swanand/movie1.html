@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: rgb(46, 0, 8);
+        }#movie{
+            height: 30px;
+            width: 400px;
+            margin-left: 500px;
+            margin-top: 50px;
+            font-size: 20px;
+        }#sub{
+            height: 35px;
+            width: 100px;
+            font-size: 20px;
+        }#box{
+            color: white;
+            margin-left: 50px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" id="movie" placeholder="Enter Movie"/>
+    <button onclick="getMovie()" id="sub">Submit</button>
+        
+   <div id="box">
+    <p id="textt"></p>
+   
+    
+ </div>
+</body>
+</html>
+<script>
+    async function getMovie(){
+        try{
+            let movie = document.getElementById("movie").value;
+            let response = await fetch(`http://www.omdbapi.com/?t=${movie}&apikey=b083f161`);
+            let data = await response.json();
+            var info=''
+            for(key in data){
+                 info=`<p id="textt">${info+key+" : "+data[key]}</p>`
+                 document.getElementById('box').innerHTML=info
+                 
+             }
+
+
+ 
+        }catch(err){
+            console.log("error",err);
+        }
+    }
+</script>
+<!-- https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=e4c70ce6a6821649a416cb9521d5f4f8 -->
