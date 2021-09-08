@@ -7,17 +7,26 @@
     <title>Document</title>
     <style>
         body{
-            background-color: rgb(46, 0, 8);
+            background-color: rgb(0, 0, 0);
         }#movie{
-            height: 30px;
+            height: 40px;
             width: 400px;
             margin-left: 500px;
             margin-top: 50px;
             font-size: 20px;
+            outline: none;
+            border-radius: 10px;
+            padding-left: 20px;
+            font-weight: bold;
+            margin-top: 0;
         }#sub{
-            height: 35px;
+            height: 45px;
             width: 100px;
             font-size: 20px;
+            border-radius: 10px;
+            font-weight: bold;
+            background-color: pink;
+            outline: none;
         }#box{
             color: white;
             margin-left: 50px;
@@ -28,6 +37,7 @@
         }.h1{
             font-size: 50px;
             text-align: center;
+            margin-right: 50px;
         }.cls{
             font-size: 25px;
             text-align: center;
@@ -37,12 +47,38 @@
             margin-left: 500px;
             margin-top: 100px;
         }.recom{
-            color: blue;
+            color: green;
             font-size: 25px;
+            border: 2px solid green;
+            padding: 10px;
+            width: 200px;
+            margin-left: -50px;
+            animation: blinker 1.5s linear infinite;
+
+        }@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
+}
+        .head{
+            margin-bottom: 0;
+            margin-top: 0;
+            margin-left: 39%;
+        }.sorry{
+            height: 200px;
+            width: 400px;
+            margin-left: 37%;
+        }#nodata{
+            color: white;
+            font-size: 40px;
+            font-weight: 900;
+            margin-left: 40%;
+            color: thistle;
         }
     </style>
 </head>
 <body>
+    <h1 class="head"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAACoCAMAAABt9SM9AAAA9lBMVEUAAAD/agP///8AAAX3aAe5TwQEAAK0TQn/bQYAAAaZRAzk5ORmZmb/bwDv7+9SUlK6urqAgIDUWQNuLAlUIQrX19eSPwfrZAY3Fwn/28lfJgMgICD+ZgD9XwAqEQX8iEj/5tf9mWGtra1oaGhISEj09PSwsLCSkpLFxcUzMzNaWlrd3d37fC2hoaH99e1RUVF4eHhAQEAfHx/g0sV/f38uLi4wMDD7rosTExNJHAWDPA5tNRDBUAKzgWYdEQ4xGQw+HQriXgr30rckDgOQMwCkRgN1NQl8MQsvDgn5nGobCAuIOwdHHAcbEw0+FweiXjtQKhGkbEu3qIb4AAAIxklEQVR4nO2cYVfbNhSGnTgEO2CSpqTpKGUdISQkywi0bEBZC6PABm3X/f8/s9jSla9kOYlScnDPeZ8vYEkW0YMkX0sCzwMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPzoVAXqG/rOzLGUzEmYWZVZkt/gV59ayDTCMPTnxaXsolWFRbb1/mKlUJyHT21kCrUoKBSrTy1kGrWgVCQgywHIcgCyHIAsByDLAchyALIcgCwHIMsByHIAshyALAcgywHIcgCyHIAsBwoua1ujotzJlUujLWJdtcKLlHgZteJpXgdRFFkqnEvWemddks3bo7zOKyPnqLffGg5bjV6dpx6K8p09syJZT+dk8v2gw8scqB//5y8a27IxzQ8vY75c6CY+Jqkv76L4sn2dXFzfsDJBLUn8+LGdXG3JGwSX357XVtrRNF9WWd0ycZDJ21B5Ay392ZrKKHdHLF2mbZjSqfBxWmlfv8Xkt9fyQzfjzRfP81c0WZHcgnkuZIntGJ+P5OCF3KQRss5oE0d+JN/zw82VINjOE2aVlQoZmVlH6WfnHWiwYTTsmcrK8T4qM0FSdGOWLOpZcgPPkJVsvShZyVXVlCV+QiIr2vS9LOHlVW7nmiFrzczatcoaZVvWp7y+TOjpFVFHHC8iK1yaLL/qhxcL9qyyOdWwrFTWvq1pLZnZMa4FB1SMm3saWVVP7DcrwquSXdcsWbt6zoB9diWrZ28b9S1Ni3lP4+llxfekE1c8dW3mPBZnyerqOQ2LrEOV0uqNx72+uuzp94x5RS2ZuD5FVr//9ifOX8uRdd1MuHhx6SXKqr6XM23NkmU88/gvum6U3pBD9phElEVwQb2xb6lI/i7ssjzv02sNasLjytqJKOBaDT2RdGN1NVtWg2d0WAbJeicv2bOgr9/bzXbSsSyxP03Wq0kEzykFS+lZO5HInNR/I1LC2wV7ljbV9HlGXS98YKngOLmi+X+Qrag+S5b1Qy9FVkxFHvzYcpa1Jr50WIZoRIs3lILLfV4BdRwxa9Xl1a5ZkYpUiyIr+JCk+O6yNnaTL2yqESNuY8RlUYh1otUgR16L18cGKk1jFPMWRta9yL9zltWV0XqaLrrUaJ/LapkiEugJKK525ZUaqZRwVDBZbfFq4K+6z1nyq3pzOZZ9qM9ldbV2EjTrCxs0VFUQv2YYnmeCZ4GilKW/G5YifyFZ/t/iaRinPMSyJjF8ewFZIz6WKJBc87is300PnqZnrMmgmg7Mm+YJHbYzPStcrTDalYVlyWWatjjY53vnCwSl3onsSlqTeh6f4A0rCl3HSDWfWWfDco6g9M0/qS2SpR/9DBcchvcPCbef6Qzkl4rd1VRZJ96Qt/iABseQyaKpum5UIZPlDE797524lBUMVel5Xnf+yMiy8t2rDuFlJSrZmSbrSA28BDUo15gfClMP7bIoWpB6+lpmOnSLI8u/z5ncZ8na807FNwcsdayyE1kUUeXIouhLDjwRxNPsn5YujizP/5pva5qsOkXayWA6VC3szt+zSNYreZ0E8fIBwdZsCiRrMg43KwvIGpCLJNDeV+0pM1nr02WpoL3F5Mm8d98r65Em+Orns4Sv1TBecfCq3tkCE3xHNSz20lVdg8uiVxlza0Mmq2VpKWCD+WWl7bL2Tv79NYX9uinOWm1zKt5isnYiSeViRwgPFwhK43CgQa0YpH2My6I1+Wd6DSeZZJlwpN6r+YqNXdaxVxOfscS/cFmPEZR6O6JEHGq15evOqbusuKVipurSRBMPq1Muiy6MFVWaytIO11ddjfXb6bKe4N1QrNFU/aazrF76/bqnOoaarOu8rL7CbkahnnpsDlVf5MWXKOuFkyxxl+ffWH/wNFmjtNl90VWSiItaW+c9Rl9hp7iKbxbKcqcjTcyyZAVyacp/4LIeRGKYJ6skXpmq4QtnWcnQEnF7t5/2NZrThSwKtLRJiyJ2bkRaHUuP2nL1EnpWIEz4W0xF8E2k3Qd5strfJ4s6SUKy8mm84ZSznUit0HAjchqTMYS+EbIMWV9FZSErU5H3fY7ssoLgYuFhuKt99DJNTIYsEsOmeCqhb9mXOdrC6jJklc5l3TfKRVST+xEP9p4VlILPclKz77POlsUaObbJoiGXxlRqb+ydVivfRjOCWLus00nooJ2icZAVlJqy7vBCyoguaPOmaciiJbPKc7F96If2GH4OWekuhWeTle7dt5JA4UjtTw/1WvkGrXFMxC6rfvTfzxoUas3Vs6KXvhxTt814ba95LntNeBlosq7FX6mu3tyqv1P9Zl93mEOW2v9q2GWpYwuxhLX0BE7mCA7LMg6czLcjXaauNdecNZl/klLVibPqzk510qvES5IvOlb6bhjKZ4FPsqjEArJUIwc5sk67tpZpUWfCbq7HOWWlR47m6FlJoJB54Z4IoWAi50V68ixcZKWUZMnJhh5g2fW+E5stc+2U7/Obh3OWIytIxxWTdRvMkBXe5R0BnEfWnn5pWxxtme3ayJz0S+vNrNg7y5p2PstTsiZvL/G6BP2QajzQWFCQkRXGLsOcsCFXluwo6vEuGkn7VtaV5LF+mi1zCC5BPQpOjAxnWV5WVsmUFfet9nu5cpPICMO7dtppojNDVlx0p1YJcg4c5cjqt2KG6vffG04u1SrB3lBkG32n06DB2DKWIBRH4s5Ww8yQP1Aq7shirdbbNxo0wV9tbsVs6tFQsCVg0Xe8kHCz5ccRwyRs2LppcxHBw5bOXW3lauox3Mc9rXw4GNTNXvM9fNrWTtEwCVFyvlhvSyQSzdSJsKtm86pdyZ5uZtiOPy9X1mNTC9jx64o6RTOtVdm8gCrJFs2/+jFlFQnIcgCyHIAsByDLAchyALIcgCwHIMsByHIAshyALAcgywHIcgCyHIAsByDLAchyALIcgCwHIMuBgssqVYoE/Q11MSnY/6pPz9kUEf6/KYpAsT4NAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAefgfqagEvPr6l+wAAAAASUVORK5CYII=" alt=""></h1>
     <input type="text" id="movie" placeholder="Enter Movie"/>
     <button onclick="getMovie()" id="sub">Submit</button>
         
@@ -50,9 +86,15 @@
  </div>
  <p id="sorry"></p>
  <div id="box1"></div>
+ <div id="im"></div>
+ <p id="nodata"></p>
 </body>
 </html>
 <script>
+    let im = document.getElementById("im")
+    var imagee=document.createElement("img")
+    imagee.setAttribute("class","sorry")
+    imagee.src="https://c.tenor.com/AWTgyXPeMCAAAAAM/sorry.gif"
     async function getMovie(){
         try{
             let movie = document.getElementById("movie").value;
@@ -64,18 +106,22 @@
             for(key in data){
              
                 if(data.Title==undefined){
-                    info="sorry"
+                    var nodata = document.getElementById("nodata");
+                    nodata.textContent="NO MOVIE FOUND"
+                    im.append(imagee)
 
                 }else if(data.imdbRating>8.5){
+                    document.innerHTML=""
                     info=` <div class="big">
-           <h1 class="h1">${data.Title}</h1>
+                        <p class="recom">RECOMMENDED<h1 class="h1">${data.Title}</h1></p>
            <img  src=${data.Poster} class="img"/>
            <p class="cls">Released date: ${data.Released}</p>
         <p>${data.Plot}</p>
-        <p class="cls">IMDB Rating:${data.imdbRating} <p class="recom">Recommended</p></p>
+        <p class="cls">IMDB Rating:${data.imdbRating}</p>
        </div>`
                 }
               else{
+                document.innerHTML=""
                 info=` <div class="big">
            <h1 class="h1">${data.Title}</h1>
            <img  src=${data.Poster} class="img"/>
